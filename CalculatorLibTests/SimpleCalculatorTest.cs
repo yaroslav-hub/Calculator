@@ -21,11 +21,11 @@ namespace CalculatorLibTests
 
             //Act
 
-            int result = simpleCalculator.Calculate("2+2");
+            int result = simpleCalculator.Calculate( "2+2" );
 
             //Assert
 
-            Assert.Equal(4, result);
+            Assert.Equal( 4, result );
         }
 
         [Fact]
@@ -38,15 +38,15 @@ namespace CalculatorLibTests
                 new SubstractionOperation()
             };
 
-            SimpleCalculator simpleCalculator = new(operations);
+            SimpleCalculator simpleCalculator = new( operations );
 
             //Act
 
-            int result = simpleCalculator.Calculate("2-2");
+            int result = simpleCalculator.Calculate( "2-2" );
 
             //Assert
 
-            Assert.Equal(0, result);
+            Assert.Equal( 0, result );
         }
 
         [Fact]
@@ -59,15 +59,36 @@ namespace CalculatorLibTests
                 new MultiplicationOperation()
             };
 
-            SimpleCalculator simpleCalculator = new(operations);
+            SimpleCalculator simpleCalculator = new( operations );
 
             //Act
 
-            int result = simpleCalculator.Calculate("2*3");
+            int result = simpleCalculator.Calculate( "2*3" );
 
             //Assert
 
-            Assert.Equal(6, result);
+            Assert.Equal( 6, result );
+        }
+
+        [Fact]
+        public void SimpleCalculator_Calculate_DivisionOperation_Calculated()
+        {
+            //Arrange
+
+            List<IOperation> operations = new()
+            {
+                new DivisionOperation()
+            };
+
+            SimpleCalculator simpleCalculator = new( operations );
+
+            //Act
+
+            int result = simpleCalculator.Calculate( "30/11" );
+
+            //Assert
+
+            Assert.Equal( 2, result );
         }
     }
 }

@@ -16,7 +16,8 @@ namespace Calculator
             {
                 new AdditionOperation(),
                 new SubstractionOperation(),
-                new MultiplicationOperation()
+                new MultiplicationOperation(),
+                new DivisionOperation()
             };
             ICalculator calculator = new SimpleCalculator( operations );
             calculator.Calculate( args[0] );
